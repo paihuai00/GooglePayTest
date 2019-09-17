@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="使用GitHub三方库实现GooglePay"/>
+        <Button
+            android:id="@+id/btn_get_token"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取授权信息(校验需要使用access_token)"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_query_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="查询：所有商品信息"
+            android:textAllCaps="false" />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv"/>
+
+        <Button
+            android:id="@+id/btn_query_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="点击查询：应用内商品信息"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_start_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击：GooglePay支付"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_consume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="消费上面购买的商品"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:id="@+id/btn_restore_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="恢复订阅"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取购买记录"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/btn_purchase_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="向Google，校验上面订单状态"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_clean"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="清除记录"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</ScrollView>
