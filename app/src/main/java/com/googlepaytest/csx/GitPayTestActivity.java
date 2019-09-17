@@ -45,6 +45,7 @@ import static com.googlepaytest.csx.GooglePayConstant.PayLicenseKey;
  * Api参考：https://developers.google.com/android-publisher/api-ref/purchases/products/get?hl=zh-cn
  * <p>
  * 使用 三方库，进行Google Pay 相关操作
+ * ·
  */
 public class GitPayTestActivity extends Activity implements View.OnClickListener {
     private static final String TAG = "PayTestActivity";
