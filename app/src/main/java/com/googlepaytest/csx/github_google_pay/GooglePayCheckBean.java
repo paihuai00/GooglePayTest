@@ -1,4 +1,4 @@
-package com.googlepaytest.csx;
+package com.googlepaytest.csx.github_google_pay;
 
 /**
  * Date: 2019/8/29

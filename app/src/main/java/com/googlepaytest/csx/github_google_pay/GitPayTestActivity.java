@@ -1,4 +1,4 @@
-package com.googlepaytest.csx;
+package com.googlepaytest.csx.github_google_pay;
 
 import android.app.Activity;
 import android.content.ComponentName;
@@ -24,6 +24,7 @@ import com.anjlab.android.iab.v3.SkuDetails;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
+import com.googlepaytest.csx.R;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -34,7 +35,7 @@ import java.util.List;
 
 import okhttp3.Call;
 
-import static com.googlepaytest.csx.GooglePayConstant.PayLicenseKey;
+import static com.googlepaytest.csx.github_google_pay.GooglePayConstant.PayLicenseKey;
 
 
 /**
@@ -87,7 +88,7 @@ public class GitPayTestActivity extends Activity implements View.OnClickListener
 
         initView();
 
-
+        //初始化
         BillingManager.init(this, PayLicenseKey, new BillingProcessor.IBillingHandler() {
             @Override
             public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
@@ -168,7 +169,6 @@ public class GitPayTestActivity extends Activity implements View.OnClickListener
                 tv_hint.setText(tv_hint.getText() + "\n\n onBillingInitialized");
             }
         });
-
 
         bp = BillingManager.getBillingProcessor();
 
