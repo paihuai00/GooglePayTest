@@ -190,6 +190,38 @@ public class NativeBillingClientManager {
         });
     }
 
+    /**
+     * 购买 Google Sub 订阅 商品
+     * @param sku  商品id
+     * @return
+     */
+    public static void startSubPurchase(final String sku) {
+        if (billingClient == null)
+            throw new IllegalArgumentException("startSubPurchase(); error . Please call init(); first!");
+
+        //判断是否连接
+        if (!mIsServiceConnected) connectionService();
+
+        SkuDetailsParams skuDetailsParams = SkuDetailsParams.newBuilder()
+                .setType(BillingClient.SkuType.SUBS)
+                .setSkusList(Arrays.asList(sku))//转换成数组
+                .build();
+        //先查询，后调起支付
+        billingClient.querySkuDetailsAsync(skuDetailsParams, new SkuDetailsResponseListener() {
+            @Override
+            public void onSkuDetailsResponse(BillingResult billingResult, List<SkuDetails> skuDetailsList) {
+                Log.d(TAG, "startSubPurchase  - > onSkuDetailsResponse: " + billingResult.toString() + "  , " + skuDetailsList.toString());
+                Log.d(TAG, "startSubPurchase  - > onSkuDetailsResponse: skuDetailsList.size() = " + skuDetailsList.size());
+
+                if (skuDetailsList != null && skuDetailsList.size() > 0) {
+                    SkuDetails skuDetails = skuDetailsList.get(0);
+                    //调起Google支付
+                    BillingResult payResult = launchBillingFlow(skuDetails);
+                    Log.d(TAG, "调起Google支付  : onSkuDetailsResponse: " + payResult.toString());
+                }
+            }
+        });
+    }
 
     /**
      * 启动应用内商品的购买

@@ -241,8 +241,8 @@ public class NativePayTestActivity extends Activity implements View.OnClickListe
                 tv_hint.setText("");
                 break;
             case R.id.btn_restore_sub:
-                boolean restore = BillingManager.restore();
-                Log.d(TAG, "onClick: ");
+//                boolean restore = BillingManager.restore();
+//                Log.d(TAG, "onClick: ");
                 break;
         }
 
@@ -250,9 +250,6 @@ public class NativePayTestActivity extends Activity implements View.OnClickListe
 
     /**
      * 调起google支付
-     * 1,先调用自己后台，生成订单(用于记录)
-     * 2，成功后，拉起GooglePay进行支付
-     * ps:实际调用的是( bp.purchase(GitPayTestActivity.this, purchaseId);)
      */
     private void startPay() {
         if (TextUtils.isEmpty(purchaseId)) {
@@ -260,7 +257,14 @@ public class NativePayTestActivity extends Activity implements View.OnClickListe
             return;
         }
 
-        NativeBillingClientManager.startInAppPurchase(purchaseId);
+        if (curInappProductBean != null) {
+            if (curInappProductBean.getPurchaseType().contains("sub")) {
+                //调用 "购买订阅"
+                NativeBillingClientManager.startSubPurchase(purchaseId);
+            } else {
+                NativeBillingClientManager.startInAppPurchase(purchaseId);
+            }
+        }
     }
 
     /**
