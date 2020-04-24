@@ -5,20 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
-    <Button
-        android:id="@+id/btn_native"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="原生方法Google支付!"
-        android:textAllCaps="false" />
+  <TextView
+      android:id="@+id/tv_app_vs_code"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="#767676"
+      android:gravity="center"
+      android:padding="6dp"
+      android:textColor="@android:color/white"
+      android:textSize="16sp"
+      />
 
-    <Button
-        android:id="@+id/btn_git"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Github方法Google支付!"
-        android:textAllCaps="false" />
+  <Button
+      android:id="@+id/btn_native"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="原生方法Google支付!"
+      android:textAllCaps="false"
+      />
+
+  <Button
+      android:id="@+id/btn_git"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Github方法Google支付!"
+      android:textAllCaps="false"
+      />
 
 </LinearLayout>

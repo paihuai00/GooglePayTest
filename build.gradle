@@ -3,8 +3,12 @@
 buildscript {
     
     repositories {
+        //使用alinyun，解决依赖下载问题
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
@@ -17,7 +21,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
+        mavenCentral()
         jcenter()
         maven { url "https://jitpack.io" }
     }

@@ -105,6 +105,8 @@ public class NativeBillingClientManager {
                 if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
                     // The BillingClient is ready. You can query purchases here.
                     mIsServiceConnected = true;
+                }else{
+                    Log.d(TAG, "connectionService  - > onBillingSetupFinished: 连接失败code = " + billingResult.getResponseCode());
                 }
             }
 
@@ -178,9 +180,10 @@ public class NativeBillingClientManager {
         billingClient.querySkuDetailsAsync(skuDetailsParams, new SkuDetailsResponseListener() {
             @Override
             public void onSkuDetailsResponse(BillingResult billingResult, List<SkuDetails> skuDetailsList) {
-                Log.d(TAG, "startInAppPurchase  - > onSkuDetailsResponse: " + billingResult.toString() + "  , " + skuDetailsList.toString());
-
+                Log.d(TAG, "startInAppPurchase  - > onSkuDetailsResponse: " + billingResult.toString()+"\n");
                 if (skuDetailsList != null && skuDetailsList.size() > 0) {
+                    Log.d(TAG, "startInAppPurchase  - > onSkuDetailsResponse: " + billingResult.toString() + "  , " + skuDetailsList.toString());
+
                     SkuDetails skuDetails = skuDetailsList.get(0);
                     //调起Google支付
                     BillingResult payResult = launchBillingFlow(skuDetails);

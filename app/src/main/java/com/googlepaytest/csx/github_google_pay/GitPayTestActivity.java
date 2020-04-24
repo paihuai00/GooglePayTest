@@ -127,6 +127,7 @@ public class GitPayTestActivity extends Activity implements View.OnClickListener
                  * Note - this includes handling the case where the user canceled the buy dialog:
                  * errorCode = Constants.BILLING_RESPONSE_RESULT_USER_CANCELED
                  */
+                showToast("购买失败 code  = " + errorCode);
                 switch (errorCode) {
                     case Constants.BILLING_RESPONSE_RESULT_USER_CANCELED:
                         tv_hint.setText(tv_hint.getText() + "\n\n onBillingError： errorCode = " + errorCode + "用户取消!");

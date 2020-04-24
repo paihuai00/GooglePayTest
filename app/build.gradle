@@ -6,8 +6,8 @@ android {
         applicationId "com.googlepaytest.csx"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 11
-        versionName "11"
+        versionCode 13
+        versionName "13"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
