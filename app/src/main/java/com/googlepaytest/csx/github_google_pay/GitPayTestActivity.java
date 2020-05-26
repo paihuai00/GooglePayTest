@@ -223,6 +223,7 @@ public class GitPayTestActivity extends Activity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_get_token:
+
                 tv_hint.setText(tv_hint.getText() + "\n\n------获取Token开始-------- ");
                 getToken();
                 break;
